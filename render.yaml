@@ -1,0 +1,24 @@
+services:
+  - name: backend
+    type: web
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGO_URI
+        value: YOUR_MONGO_URI_HERE
+      - key: FIREBASE_PROJECT_ID
+        value: YOUR_FIREBASE_PROJECT_ID
+      - key: FIREBASE_CLIENT_EMAIL
+        value: YOUR_FIREBASE_CLIENT_EMAIL
+      - key: FIREBASE_PRIVATE_KEY
+        value: YOUR_FIREBASE_PRIVATE_KEY
+      - key: NODE_ENV
+        value: production
+
+  - name: frontend
+    type: static
+    buildCommand: npm run build
+    publishDir: dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://YOUR_BACKEND_SERVICE_NAME.onrender.com/graphql
