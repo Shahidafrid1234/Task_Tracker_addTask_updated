@@ -16,7 +16,7 @@ services:
         value: production
 
   - name: frontend
-    type: static
+    type: static_site
     buildCommand: npm run build
     publishDir: dist
     envVars:
